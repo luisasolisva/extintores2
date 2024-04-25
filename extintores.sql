@@ -28,7 +28,7 @@ CREATE TABLE mantenimiento (
     tipo_mantenimiento VARCHAR(50) NOT NULL,
     fecha DATE NOT NULL,
     descripcion TEXT,
-    costo DECIMAL(10, 2),
+    costo DECIMAL(10, 3),
     FOREIGN KEY (id_extintor) REFERENCES extintores(id_extintor)
 );
 
