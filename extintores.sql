@@ -1,6 +1,6 @@
 -- Tabla para almacenar información sobre las salas
 CREATE TABLE salas (
-    id_sala INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL UNIQUE, -- Asegura que el nombre de la sala sea único
     ubicacion VARCHAR(100),
     capacidad INT
@@ -8,7 +8,7 @@ CREATE TABLE salas (
 
 -- Tabla para almacenar las características de los extintores
 CREATE TABLE extintores (
-    id_extintor INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     id_sala INT UNSIGNED,
     tipo VARCHAR(50) NOT NULL,
     capacidad_libras INT,
@@ -23,7 +23,7 @@ CREATE TABLE extintores (
 
 -- Tabla para el mantenimiento de los extintores
 CREATE TABLE mantenimiento (
-    id_mantenimiento INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     id_extintor INT UNSIGNED,
     tipo_mantenimiento VARCHAR(50) NOT NULL,
     fecha DATE NOT NULL,
@@ -45,7 +45,7 @@ SELECT * FROM salas;
 
 
 -- Insertar datos en la tabla extintores
-INSERT INTO extintores (id_sala, tipo, capacidad_libras, presion, color, fecha_instalacion, fecha_ultima_inspeccion, fecha_caducidad)
+INSERT INTO extintores (id, tipo, capacidad_libras, presion, color, fecha_instalacion, fecha_ultima_inspeccion, fecha_caducidad)
 VALUES 
     (1, "Polvo ABC", 10, 150,"amarillo", "2023-01-15", "2024-02-20", "2025-01-15"),
     (2, "CO2", 20, 200, "rojo", "2023-02-20", "2024-03-25", "2025-02-20"),
@@ -57,7 +57,7 @@ SELECT * FROM extintores;
 
 
 -- Insertar datos en la tabla mantenimiento
-INSERT INTO mantenimiento (id_extintor, tipo_mantenimiento, fecha, descripcion, costo)
+INSERT INTO mantenimiento (id, tipo_mantenimiento, fecha, descripcion, costo)
 VALUES 
     (1, "Inspección anual", "2023-01-15", "Inspección anual de rutina", 50.000),
     (2, "Recarga", "2023-02-20", "Recarga de CO2", 100.000),
